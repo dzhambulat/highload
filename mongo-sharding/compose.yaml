@@ -90,8 +90,8 @@ services:
     command:
       [
         "mongos", #обычная mongo в режиме роутера
-        **"--configdb", 
-        "config_server/configSrv:27017",** #передача данных сервера конфигурации
+        "--configdb", 
+        "config_server/configSrv:27017", #передача данных сервера конфигурации
         "--bind_ip_all",
         "--port",
         "27020"
