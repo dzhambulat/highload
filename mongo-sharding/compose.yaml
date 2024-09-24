@@ -1,5 +1,5 @@
 services:
-  //сервер конфигурации
+  #сервер конфигурации
   configSrv:
     image: mongo:latest # docker образ
     container_name: configSrv 
@@ -13,7 +13,7 @@ services:
       - config-data:/data/db
     command:
       [
-        "--configsvr",  //запуск в режиме конфигурации
+        "--configsvr",  
         "--replSet",
         "config_server",
         "--bind_ip_all",
@@ -25,7 +25,7 @@ services:
       interval: 5s
       start_period: 10s
 
-  //1-й шард 
+
   shard1:
     image: mongo:latest
     container_name: shard1
@@ -39,9 +39,9 @@ services:
       - shard1-data:/data/db
     command:
       [
-        "--shardsvr", //запуск в режиме шардинга
+        "--shardsvr", #запуск в режиме шардинга
         "--replSet",
-        "shard1", //название реплики
+        "shard1", #название реплики
         "--bind_ip_all",
         "--port",
         "27018"
@@ -51,7 +51,7 @@ services:
       interval: 5s
       start_period: 10s
 
-  //2-й шард 
+
   shard2:
     image: mongo:latest
     container_name: shard2
@@ -65,10 +65,10 @@ services:
       - shard2-data:/data/db
     command:
       [
-        "--shardsvr", //запуск в режиме шардинга
+        "--shardsvr", #запуск в режиме шардинга
         "--replSet",
         "shard2", //название реплик
-        "--bind_ip_all", // обратите внимание - она отличается от реплики 1-го шарда
+        "--bind_ip_all", # обратите внимание - она отличается от реплики 1-го шарда
         "--port",
         "27019"
       ]
@@ -77,7 +77,7 @@ services:
       interval: 5s
       start_period: 10s
   
-  //роутер
+
   mongos_router:
     image: mongo:latest
     container_name: mongos_router
@@ -89,9 +89,9 @@ services:
         ipv4_address: 173.17.0.7
     command:
       [
-        "mongos", //обычная mongo в режиме роутера
+        "mongos", #обычная mongo в режиме роутера
         **"--configdb", 
-        "config_server/configSrv:27017",** //передача данных сервера конфигурации
+        "config_server/configSrv:27017",** #передача данных сервера конфигурации
         "--bind_ip_all",
         "--port",
         "27020"
