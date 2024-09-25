@@ -106,7 +106,7 @@ services:
 
   shard2_r0:
     image: mongo:latest
-    container_name: shard2
+    container_name: shard2_r0
     restart: always
     ports:
       - "27019:27019"
@@ -156,7 +156,7 @@ services:
 
   shard2_r2:
     image: mongo:latest
-    container_name: shard2
+    container_name: shard2_r2
     restart: always
     ports:
       - "27025:27025"
