@@ -147,7 +147,7 @@ services:
         "shard2", #название реплик
         "--bind_ip_all", # обратите внимание - она отличается от реплики 1-го шарда
         "--port",
-        "27019"
+        "27024"
       ]
     healthcheck:
       test: [ "CMD", "mongo", "--eval", "db.adminCommand('ping')" ]
@@ -172,7 +172,7 @@ services:
         "shard2", #название реплик
         "--bind_ip_all", # обратите внимание - она отличается от реплики 1-го шарда
         "--port",
-        "27019"
+        "27025"
       ]
     healthcheck:
       test: [ "CMD", "mongo", "--eval", "db.adminCommand('ping')" ]
