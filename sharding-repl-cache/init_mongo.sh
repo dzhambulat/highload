@@ -6,7 +6,7 @@ rs.initiate(
     members: [
       { _id : 0, host : "configSrv:27017" }
     ]
-  }
+  });
 EOF
 
 docker compose exec -T shard1_r0 mongosh --port 27018 --quiet <<EOF
