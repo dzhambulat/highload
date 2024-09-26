@@ -1,35 +1,12 @@
-# pymongo-api
 
-## Как запустить
 
-Запускаем mongodb и приложение
+Ссылка на диаграмы:
+https://drive.google.com/file/d/1AbeLod7Wn190J4aoTyl831HttuOTX-7d/view?usp=sharing
 
-```shell
-docker compose up -d
-```
+Переходим в каталог sharding-repl-cache
+Для запуска используем sudo docker compose up -d
+Затем нужно будет инициализировать mongo шарды и реплики. 
+Для этого делаем: chmod +x init_mongo.sh
+и 
+./init_mongo
 
-Заполняем mongodb данными
-
-```shell
-./scripts/mongo-init.sh
-```
-
-## Как проверить
-
-### Если вы запускаете проект на локальной машине
-
-Откройте в браузере http://localhost:8080
-
-### Если вы запускаете проект на предоставленной виртуальной машине
-
-Узнать белый ip виртуальной машины
-
-```shell
-curl --silent http://ifconfig.me
-```
-
-Откройте в браузере http://<ip виртуальной машины>:8080
-
-## Доступные эндпоинты
-
-Список доступных эндпоинтов, swagger http://<ip виртуальной машины>:8080/docs
